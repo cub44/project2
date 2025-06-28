@@ -1,12 +1,25 @@
+import os  # Make sure this is at the top of your file
+
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-import os
 import json
 
 from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI()
+
+# The following block was using 'app' before it was defined, so it has been moved below.
+# @app.post("/webhook")
+# async def run_action(command: Command):
+#     action = command.action
+#     payload = command.payload
+#
+#     if action == "list_files":
+#         files = os.listdir(".")
+#         return {"files": files}
+#
+#     # ...other actions like read_file, write_file, etc.
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -62,6 +75,4 @@ async def run_action(command: Command):
 
     else:
         return {"error": f"Unknown action: {action}"}
-
-
 
