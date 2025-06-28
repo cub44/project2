@@ -1,0 +1,13 @@
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Deno artifacts
+.deno/
+\# Supabase local config
+supabase/.temp/
+
+# Node.js modules (if any)
+node_modules/
